@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:presensi_app/screen/splash_screen.dart';
-import 'package:presensi_app/screen/dashboard_screen.dart';
-import 'package:presensi_app/screen/login.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-
-void main() {
+Future<void> main() async {
+  //untuk format tanggal indonesia
+  await initializeDateFormatting('id', null);
   runApp(const MainApp());
 }
 
@@ -14,13 +14,13 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:'Presensi App',
+      title: 'Presensi App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }
